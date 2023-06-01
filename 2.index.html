@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="rex" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+      }
+      #navbar {
+        display: flex;
+        font-size: 20px;
+        margin-left: 250px;
+      }
+      #nav2 {
+        display: flex;
+        margin-left: 300px;
+      }
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      .ili {
+        color: black;
+      }
+      #header {
+        height: 10vh;
+      }
+
+      #colorpage {
+        background-color: blue;
+        height: 90vh;
+      }
+      #box {
+        height: 25%;
+        background-color: black;
+        color: white;
+        width: 45%;
+        padding-top: 20px;
+        padding-left: 10px;
+        /* margin-top: 70px; */
+        margin-left: 320px;
+        font-size: 40px;
+      }
+      #colorpage {
+        padding-top: 200px;
+      }
+      #click {
+        height: 40px;
+        border: 2px solid rgb(93, 71, 221);
+
+        width: 120px;
+        margin-top: 40px;
+        margin-left: 600px;
+        font-size: 20px;
+        padding-top: 5px;
+        padding-left: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="mainpage">
+      <section #header>
+        <div id="navbar">
+          <ul id="nav1">
+            <li style="color: aqua"><a href="#">Cool Flipper</a></li>
+          </ul>
+          <ul id="nav2">
+            <li><a href="#" class="ili">simple</a></li>
+            <li><a href="#" class="ili" style="margin-left: 10px">hex</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="colorpage">
+        <div id="box">Background Color:<span class="colorname"></span></div>
+        <div id="click">
+          <a href="#" style="color: black" class="btn">Click Me</a>
+        </div>
+      </section>
+    </section>
+
+    <script>
+      let btn = document.querySelector(".btn");
+      let hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+      function random() {
+        let randomcolor = Math.floor(Math.random() * 16);
+        return hex[randomcolor];
+      }
+      // console.log()
+      btn.addEventListener("click", () => {
+        let hexPattern = "#";
+        for (i = 0; i < 6; i++) {
+          hexPattern = hexPattern + random();
+          //  console.log(hexPattern);
+        }
+
+        let colorpage = document.querySelector("#colorpage");
+        let colorname = document.querySelector(".colorname");
+        console.log(hexPattern);
+        colorpage.style.backgroundColor = hexPattern;
+        //console.log(colorpage.style.backgroundcolor);
+        colorname.textContent = hexPattern;
+      });
+    </script>
+  </body>
+</html>
